@@ -1,1 +1,140 @@
-<h1>Meu Projeto de Vinhos</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wine of House | Premium Selection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="images/logo.jpg" alt="Wine of House Logo">
+                <span class="brand-name">Wine of House</span>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search for your favorite wine...">
+                <button>Search</button>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#location">Location</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero-carousel">
+            <div class="carousel-container">
+                <div class="carousel-slide active">
+                    <img src="images/banner01.jpg" alt="Pouring Red Wine">
+                    <div class="carousel-overlay">
+                        <h2>The Best Wine</h2>
+                        <p>Experience excellence in every drop</p>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/Handpicked Labels.jpg" alt="People Toasting">
+                    <div class="carousel-overlay">
+                        <h2>Handpicked Labels</h2>
+                        <p>Curated for true connoisseurs</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-prev">&#10094;</button>
+            <button class="carousel-next">&#10095;</button>
+        </section>
+
+        <section id="products" class="featured-wines">
+            <h3>Featured Collection</h3>
+            <div class="wine-grid">
+                <div class="wine-card">
+                    <img src="images/Cabernet Sauvignon.jpg" alt="Red Wine Cabernet">
+                    <div class="wine-info">
+                        <h4>Cabernet Sauvignon</h4>
+                        <span>$45.00</span>
+                    </div>
+                </div>
+                <div class="wine-card">
+                    <img src="images/Chardonnay.jpg" alt="White Wine Chardonnay">
+                    <div class="wine-info">
+                        <h4>Chardonnay Reserve</h4>
+                        <span>$38.00</span>
+                    </div>
+                </div>
+                <div class="wine-card">
+                    <img src="images/Rose.jpg" alt="Rosé Wine Vintage">
+                    <div class="wine-info">
+                        <h4>Vintage Rosé</h4>
+                        <span>$32.00</span>
+                    </div>
+                </div>
+                <div class="wine-card">
+                    <img src="images/Brut Champagne.jpg" alt="Champagne Brut">
+                    <div class="wine-info">
+                        <h4>Brut Champagne</h4>
+                        <span>$89.00</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="about-content">
+                <h3>Our Story</h3>
+                <p>Since 1985, Wine of House has been dedicated to sourcing the world's most exquisite wines. Our passion is to connect tradition with your modern lifestyle.</p>
+            </div>
+        </section>
+
+        <section id="location" class="location-section">
+            <h3>Visit Our Cellar</h3>
+            <div class="location-container">
+                <p>📍 123 Vine Avenue, Napa Valley, California</p>
+                <p>Mon - Sat: 10:00 AM - 08:00 PM</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="social-media">
+            <a href="#">Instagram</a> | <a href="#">Facebook</a> | <a href="#">Twitter</a>
+        </div>
+        <p>&copy; 2026 Wine of House. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const slides = document.querySelectorAll('.carousel-slide');
+        const prevButton = document.querySelector('.carousel-prev');
+        const nextButton = document.querySelector('.carousel-next');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[index].classList.add('active');
+        }
+
+        nextButton.addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        });
+
+        prevButton.addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        });
+
+        // Troca automática a cada 30 segundos
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }, 30000);
+    </script>
+</body>
+</html>
